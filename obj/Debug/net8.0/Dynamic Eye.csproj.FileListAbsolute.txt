@@ -1,0 +1,37 @@
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\appsettings.json
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Dynamic Eye.exe
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Dynamic Eye.deps.json
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Dynamic Eye.runtimeconfig.json
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Dynamic Eye.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Dynamic Eye.pdb
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Npgsql.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.csproj.AssemblyReference.cache
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.AssemblyInfoInputs.cache
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.AssemblyInfo.cs
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.csproj.CoreCompileInputs.cache
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets\msbuild.Dynamic Eye.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets\msbuild.build.Dynamic Eye.props
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Dynamic Eye.props
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Dynamic Eye.props
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\scopedcss\bundle\Dynamic Eye.styles.css
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.csproj.CopyComplete
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.dll
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\refint\Dynamic Eye.dll
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.pdb
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.genruntimeconfig.cache
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\ref\Dynamic Eye.dll
