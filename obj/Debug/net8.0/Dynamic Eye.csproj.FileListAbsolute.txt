@@ -35,3 +35,4 @@ C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\refint\Dynamic Eye.dll
 C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.pdb
 C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.genruntimeconfig.cache
 C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\ref\Dynamic Eye.dll
+C:\Users\hady_\Desktop\Dynamic Eye\obj\Debug\net8.0\Dynamic Eye.sourcelink.json
