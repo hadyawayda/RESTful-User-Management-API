@@ -1,11 +1,12 @@
 ﻿using Dynamic_Eye.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dynamic_Eye.Controllers
 {
     [ApiController]
-    [Route("api/users")]
+    [Route("users")]
     public class UsersController : ControllerBase
     {
         private readonly UsersDbContext _context;
@@ -45,46 +46,8 @@ namespace Dynamic_Eye.Controllers
             return Ok(users);
         }
 
-        [HttpGet("id/{id}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser(int id)
-        {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound("User Not Found!");
-            }
-
-            return Ok(user);
-        }
-
-        [HttpGet("username/{username}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUserByUsername(string username)
-        {
-            var user = await _context.Users.FindAsync(username);
-
-            if (user == null)
-            {
-                return NotFound("User Not Found!");
-            }
-
-            return Ok(user);
-        }
-
-        [HttpGet("email/{email}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUserByEmail(string email)
-        {
-            var user = await _context.Users.FindAsync(email);
-
-            if (user == null)
-            {
-                return NotFound("User Not Found!");
-            }
-
-            return Ok(user);
-        }
-
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<User>> PostUser(User user)
         {
             bool userExists = _context.Users.Any(u => u.username == user.username || u.email == user.email);
@@ -94,56 +57,58 @@ namespace Dynamic_Eye.Controllers
                 return BadRequest("A user with the given username or email already exists.");
             }
 
+            user.created = DateTime.UtcNow;
+            user.updated = DateTime.UtcNow;
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.id }, user);
+            return Ok("User Successfully Created!");
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        [Authorize]
+        public async Task<IActionResult> PutUser(int id, User userUpdate)
         {
-            if (id != user.id)
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.id == id);
+            if (user == null)
             {
-                return BadRequest();
+                return NotFound("User Not Found!");
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            user.username = userUpdate.username;
+            user.email = userUpdate.email;
+            user.hash = userUpdate.hash;
+            user.updated = DateTime.UtcNow;
 
             try
             {
                 await _context.SaveChangesAsync();
+                return Ok($"User Successfully Updated!");
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Users.Any(u => u.id == id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return StatusCode(500, "Error Updating User!");
             }
-
-            return NoContent();
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
 
             if (user == null)
             {
-                return NotFound();
+                return NotFound("User Not Found!");
             }
 
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok("User Successfully Deleted!");
         }
+
     }
 }
 
