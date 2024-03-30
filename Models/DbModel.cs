@@ -4,20 +4,18 @@ namespace Dynamic_Eye.Models
 {
     public class User
     {
+        [Key]
         public int id { get; set; }
-        public string? username { get; set; }
-        //[Required]
-        //public string Username { get; set; }
-        public string? email { get; set; }
-        //[Required]
-        //[EmailAddress]
-        //public string Email { get; set; }
-        public string hash { get; set; }
-        //public byte[] PasswordHash { get; set; }
 
-        //public byte[] PasswordSalt { get; set; }
+        public required string username { get; set; }
+
+        [EmailAddress]
+        public required string email { get; set; }
+
+        public required string hash { get; set; }
+
         public DateTime created { get; set; }
+
         public DateTime updated { get; set; }
     }
-
 }

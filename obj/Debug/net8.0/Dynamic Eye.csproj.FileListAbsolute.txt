@@ -44,3 +44,8 @@ C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.IdentityModel.Prot
 C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Scrutor.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\hady_\Desktop\Dynamic Eye\bin\Debug\net8.0\BCrypt.Net-Next.dll

@@ -2,6 +2,6 @@
 {
     public interface IAuthenticationService
     {
-        Task<string> AuthenticateAsync(string username, string password);
+        Task<string> AuthenticateAsync(string email, string password);
     }
 }

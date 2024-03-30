@@ -2,7 +2,13 @@
 
 To run this project locally, install Visual Studio and .Net runtime, and postgresQL. Create a new database and create a new table using this query:
 
-`CREATE TABLE Users (id SERIAL PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, hash TEXT NOT NULL, created TIMESTAMP WITH TIME ZONE NOT NULL, updated TIMESTAMP WITH TIME ZONE NOT NULL);`
+`CREATE TABLE Users (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(256) UNIQUE NOT NULL,
+	email VARCHAR(256) UNIQUE NOT NULL,
+	hash TEXT NOT NULL,
+	created TIMESTAMP WITH TIME ZONE NOT NULL,
+	updated TIMESTAMP WITH TIME ZONE NOT NULL);`
 
 Next, launch the "Dynamic Eye.sln" solution, then modify the connection string found in appsettings.json to include your username and password, and install the required dependencies using nuget package manager:
 Microsoft.EntityFrameworkCore

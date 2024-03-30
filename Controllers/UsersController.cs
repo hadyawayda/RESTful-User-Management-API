@@ -1,4 +1,5 @@
-﻿using Dynamic_Eye.Models;
+﻿using Dynamic_Eye.DTOs;
+using Dynamic_Eye.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace Dynamic_Eye.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] int? id, [FromQuery] string? username, [FromQuery] string? email)
         {
             IQueryable<User> query = _context.Users;
@@ -46,9 +48,8 @@ namespace Dynamic_Eye.Controllers
             return Ok(users);
         }
 
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<User>> PostUser(User user)
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> PostUser([FromBody] UserDto user)
         {
             bool userExists = _context.Users.Any(u => u.username == user.username || u.email == user.email);
 
@@ -57,28 +58,42 @@ namespace Dynamic_Eye.Controllers
                 return BadRequest("A user with the given username or email already exists.");
             }
 
-            user.created = DateTime.UtcNow;
-            user.updated = DateTime.UtcNow;
+            User newUser = new User
+            {
+                username = user.username,
+                email = user.email,
+                hash = BCrypt.Net.BCrypt.HashPassword(user.password),
+                created = DateTime.UtcNow,
+                updated = DateTime.UtcNow
+            };
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Users.Add(newUser);
+                await _context.SaveChangesAsync();
 
-            return Ok("User Successfully Created!");
+                user.password = null!;
+                return Ok(user);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500, $"An error occurred while creating the user with the following exception:\n{exception}");
+            }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update")]
         [Authorize]
-        public async Task<IActionResult> PutUser(int id, User userUpdate)
+        public async Task<IActionResult> PutUser([FromBody] UserDto updatedUser)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.email == updatedUser.email);
             if (user == null)
             {
                 return NotFound("User Not Found!");
             }
 
-            user.username = userUpdate.username;
-            user.email = userUpdate.email;
-            user.hash = userUpdate.hash;
+            user.username = updatedUser.username;
+            user.email = updatedUser.email;
+            user.hash = BCrypt.Net.BCrypt.HashPassword(updatedUser.password);
             user.updated = DateTime.UtcNow;
 
             try
@@ -86,17 +101,17 @@ namespace Dynamic_Eye.Controllers
                 await _context.SaveChangesAsync();
                 return Ok($"User Successfully Updated!");
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException exception)
             {
-                return StatusCode(500, "Error Updating User!");
+                return StatusCode(500, $"Error while updating user for the following reason:\n{exception}");
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete")]
         [Authorize]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser([FromBody] UserDto usr)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.email == usr.email);
 
             if (user == null)
             {
@@ -108,7 +123,5 @@ namespace Dynamic_Eye.Controllers
 
             return Ok("User Successfully Deleted!");
         }
-
     }
 }
-

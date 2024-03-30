@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dynamic_Eye.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -16,12 +16,12 @@ namespace Dynamic_Eye.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
+        public async Task<IActionResult> Login([FromBody] UserAuthDto request)
         {
-            var token = await _authService.AuthenticateAsync(request.Username!, request.Password!);
+            var token = await _authService.AuthenticateAsync(request.email, request.password);
 
             if (string.IsNullOrEmpty(token))
-                return Unauthorized("Invalid username or password.");
+                return Unauthorized("Invalid email or password.");
 
             return Ok(new { Token = token });
         }
