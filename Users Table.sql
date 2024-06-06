@@ -1,0 +1,10 @@
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(256) UNIQUE NOT NULL,
+    email VARCHAR(256) UNIQUE NOT NULL,
+    hash TEXT NOT NULL,
+    created TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated TIMESTAMP WITH TIME ZONE NOT NULL
+);
+
+drop table users;
