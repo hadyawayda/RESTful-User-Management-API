@@ -7,7 +7,7 @@ Expired JWT tokens are handled, as well as invalid tokens, by a middleware (JwtE
 
 # Installation
 
-To run this project locally, install Visual Studio and .Net runtime, and postgresQL. Create a new database and create a new table using this query:
+To run this project locally, install Visual Studio and .Net runtime, and postgresQL. Create a new database called "UsersDb" and create a new table using this query:
 
 `CREATE TABLE Users (
 	id SERIAL PRIMARY KEY,
