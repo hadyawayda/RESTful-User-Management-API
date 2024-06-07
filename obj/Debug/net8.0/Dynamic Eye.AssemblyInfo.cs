@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dynamic Eye")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+059969e8d102e69865e8ab1c630ad5423cfbdcb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dynamic Eye")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dynamic Eye")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
