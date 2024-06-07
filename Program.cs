@@ -16,7 +16,7 @@ builder.Services.AddDbContext<UsersDbContext>(options =>
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-    
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -38,13 +38,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-        In = ParameterLocation.Header,
+        Scheme = "Bearer",
         Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -55,7 +55,7 @@ builder.Services.AddSwaggerGen(options =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id = "oauth2"
                 }
             },
             new string[] {}
@@ -76,11 +76,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
+app.UseMiddleware<JwtExceptionHandler>();
 
 app.UseAuthorization();
-
-app.UseMiddleware<JwtExceptionHandler>();
 
 app.MapControllers();
 
